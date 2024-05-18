@@ -20,15 +20,17 @@ FROM ubuntu
 MAINTAINER invadersriram2002@gmail.com
 
 RUN apt update -y
-
 RUN apt install python3-pip -y
-
 RUN apt install gunicorn3 -y
+RUN apt install python3-venv -y
 
 WORKDIR app
 
 COPY requirements.txt requirements.txt
 COPY src src
+
+RUN python3 -m venv venv
+RUN source venv/scripts/activate
 
 RUN pip3 install -r requirements.txt
 
