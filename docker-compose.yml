@@ -1,0 +1,6 @@
+version: '3'
+services:
+  flask-app:
+    image: aws-go-brr
+    ports:
+      - "8000:8000"
